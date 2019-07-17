@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1563371948 source:c:\users\mvelaser\desktop\elen3009-lab1\guessing-game.cpp\main.cpp
+	<iostream>
+	<cstdlib>
+
