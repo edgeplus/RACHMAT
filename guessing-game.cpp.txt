@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+using namespace std;
+
+int main(){
+
+    int _TRIES = 0;
+    int magic_number = 0;
+    int GUESS = 0 ;
+    bool isCorrect = false;
+
+    do{
+        srand(time(0));
+        magic_number = rand()%100 +1;
+        cout <<"Try number " <<_TRIES+1<<endl<<endl;
+        cout<<"Enter your number between 0 and 100"<<endl;
+        cin>> GUESS;
+
+        if(GUESS >100 || GUESS < 0 || cin.fail()){
+            cin.clear(); // clears error flags
+            cin.ignore();
+            cout<<"Incorrect guess , Please enter your number between 0 and 100"<<endl;
+            cin>>GUESS;
+        }
+
+        if(GUESS == magic_number){
+            isCorrect = true;
+            cout<< "Congratulation you won the game! -> The magic number is " << magic_number<<endl;
+        }
+        else{
+             _TRIES++;
+
+            if(GUESS < magic_number){
+                cout <<"Your guess is lower than the magic number : Magic number is = " <<magic_number<< endl;
+            }
+            else{
+                 cout <<"Your guess is higher than the magic number : Magic number is = " <<magic_number<< endl;
+            }
+            /// system("CLS");
+        }
+
+        if(_TRIES ==5 && !isCorrect){
+            cout<<"You lost the game, better luck next time"<<endl;
+        }
+
+    }while(_TRIES < 5 && !isCorrect);
+    return 0;
+}
